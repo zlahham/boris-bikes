@@ -6,20 +6,14 @@
 # Verb
 - Use
 - Release 
-- Works
-- Like
-- See
+- See if works
 
 Obejct          | Messages 
 ----------------|---------
 Person          |
-Bike            |  use 
+Bike            |  works? 
 Docking Station | Release 
 
-Obejct          | Messages 
-----------------|---------
-Person          |
-Good Bike       | use 
-Bike works      | see
+Bike <-- works? --> true/false
+Docking Station <-- Release --> A bike
 
-Person--see--> Bike --works--> Good Bike --release-->Docking station
