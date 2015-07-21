@@ -1,5 +1,5 @@
 class Bike
-  def work?
-  	
+  def working?
+  	true
   end
 end
