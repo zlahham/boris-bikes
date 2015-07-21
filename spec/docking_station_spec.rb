@@ -8,6 +8,6 @@ describe DockingStation do
 
 	it 'should be a new bike' do
 		bike = Bike.new
-		expect(DockingStation.new.release_bike) == bike
+		expect(DockingStation.new.release_bike) == Bike.new.working?
 	end
 end
