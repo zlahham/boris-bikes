@@ -21,10 +21,18 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
-  describe '#release_bike' do
+  describe ' #release_bike' do
     it 'raises an error when there are no bikes available' do
       expect {subject.release_bike}.to raise_error 'No bikes available'
     end
+
+    it ' should NOT release a bike when there are NO bikes available at Docking Station' do
+      subject.dock Bike.new
+      before_release_counter = subject.bikes.length
+      subject.release_bike
+      expect(before_release_counter).to eq (subject.bikes.length + 1)
+    end
+
   end
 
 
