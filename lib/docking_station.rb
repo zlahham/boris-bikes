@@ -13,6 +13,12 @@ class DockingStation
   end
 
   def dock bike
+    fail 'Dock is full' if is_full?
     @bikes.push(bike)
   end
+
+  def is_full?
+    @bikes.length == 1
+  end
+
 end

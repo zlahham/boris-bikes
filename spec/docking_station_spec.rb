@@ -35,5 +35,16 @@ describe DockingStation do
 
   end
 
+  describe ' #dock' do
+    it 'docking station will NOT accept bikes when over capacity' do
+      #environment
+      subject.dock Bike.new
+      first_docked_bike = subject.bikes.length
+      subject.dock Bike.new
+      second_docked_bike = subject.bikes.length
+      expect(second_docked_bike).to eq (first_docked_bike)
+    end
+  end
+
 
 end
