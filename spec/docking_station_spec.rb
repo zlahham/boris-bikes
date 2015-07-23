@@ -32,17 +32,14 @@ describe DockingStation do
       subject.release_bike
       expect(before_release_counter).to eq (subject.bikes.length + 1)
     end
-
   end
 
   describe ' #dock' do
-    it 'docking station will NOT accept bikes when over capacity' do
+    it 'will NOT accept bikes when over capacity (default capacity is 20)' do
       #environment
-      subject.dock Bike.new
-      first_docked_bike = subject.bikes.length
-      subject.dock Bike.new
-      second_docked_bike = subject.bikes.length
-      expect(second_docked_bike).to eq (first_docked_bike)
+      subject.capacity.times {subject.dock Bike.new}
+      #expectation
+      expect{subject.dock Bike.new}.to raise_error 'Dock is full'
     end
   end
 
