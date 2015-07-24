@@ -11,19 +11,30 @@ class DockingStation
   end
 
   def release_bike
-    fail 'No bikes available' if @bikes.empty?
-
-
-    @bikes.pop
+    if empty?
+      fail 'No bikes available'
+    end
+    if @bikes.last.broken?
+      fail 'Bike is broken'
+    end
+      @bikes.pop
   end
 
   def dock bike
-    fail 'Dock is full' if full?
+    if full?
+      fail 'Dock is full'
+    end
     @bikes.push(bike)
   end
 
+  private
+
   def full?
     @bikes.length >= @capacity
+  end
+
+  def empty?
+    @bikes.empty?
   end
 
 end

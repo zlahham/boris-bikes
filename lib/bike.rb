@@ -13,7 +13,7 @@ class Bike
   end
 
   def broken?
-    @broken
+    @broken # => true
   end
 
 end
