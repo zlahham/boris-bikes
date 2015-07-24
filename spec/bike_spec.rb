@@ -9,4 +9,8 @@ describe Bike do
     subject.report_broken
     expect(subject).to be_broken
   end
+
+  it 'should tell if broken' do
+    expect(subject).to respond_to :broken?
+  end
 end
