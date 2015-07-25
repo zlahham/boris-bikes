@@ -44,8 +44,11 @@ describe DockingStation do
   end
 
   it 'should release a working bike even if there are broken bikes' do
-    
-
+    subject.dock(Bike.new)
+    bike = Bike.new
+    bike.report_broken
+    subject.dock(bike)
+    expect(subject.release_bike).to be_working
   end
   describe ' #dock' do
     it 'will NOT accept bikes when over capacity (default capacity is 20)' do
