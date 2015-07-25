@@ -16,9 +16,9 @@ describe DockingStation do
   end
 
   it 'releases working bikes' do
-    subject.dock Bike.new
-    bike = subject.release_bike
-    expect(bike).to be_working
+    bike = double :bike, broken?: false #working?: true,
+    subject.dock bike
+    expect(subject.release_bike).to be bike
   end
 
   describe ' #release_bike' do

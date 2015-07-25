@@ -8,7 +8,6 @@ class DockingStation
   def initialize (capacity = DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
-    #@good_bikes = []
   end
 
   def release_bike
@@ -17,9 +16,9 @@ class DockingStation
     end
     good_bikes = []
     @bikes.each do |a|
-      if a.working? == true
-        good_bikes << a
-      end
+      if a.working? == true # => `each'     `release_bike'
+        good_bikes << a     # => block in release_bike'
+      end                   # => `block (2 levels) in <top (required)>'
     end
     if good_bikes.empty?
       fail "Bike is broken"
